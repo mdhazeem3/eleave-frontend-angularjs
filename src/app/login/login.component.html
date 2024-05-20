@@ -1,0 +1,44 @@
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<title>LOGIN</title>
+<html style="background-color: black;">
+<body>
+    <div class="container">
+        <img class="side" src="https://www.nescafe.com/gb/sites/default/files/2023-11/Untitled-5%20copy_6.jpg" alt="kopi">
+        <form [formGroup]="loginForm" (submit)="login()" autocomplete="new-password">
+            <header>
+                <img src="https://zuscoffee.com/wp-content/uploads/2022/03/zus_logo.png" alt="">
+                <h1>Welcome back</h1>
+                <p>Please enter your details</p>
+            </header>
+
+                <br>
+
+            <div class="input">
+                <label for="email">Email</label>
+                <input formControlName="email" id="email" autocomplete="new-password"  type="email" required/>
+            </div>
+            
+            <div class="input">
+                <label for="password">Password</label>
+                <input formControlName="password" id="password" autocomplete="new-password" type="password" required/>
+            </div>
+                <br>
+            <button type="submit">Login</button>
+            
+            <div class="spacer">
+                <label class="remember-wrapper">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+                
+                <a href="">Forgot Password?</a>
+            </div>
+
+            <p style="text-align: center; font-family: Roboto; color: var(--text);">Don't have an account?<a routerLink="/signup">&nbsp;Sign Up</a></p>
+        </form>
+    </div>
+</body>
+</html>
