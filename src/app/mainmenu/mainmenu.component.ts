@@ -23,30 +23,31 @@ export class MainmenuComponent implements OnInit{
     console.log(this.auth.user)
   }
 
-  isAdmin():boolean{
-    if(this.parsedUserData.role==='admin'){
-      return true;
-    }else{
-      return false;
-    }
+  get isAdmin():boolean{
+    return this.auth.user.role==='admin';
   }
 
- logout(){
-  this.auth.logout().subscribe(
-    {next:(res) => {
-      console.log("Logout successful");
-      localStorage.clear()
-      
-    },
-    error: (err) => {
-      alert(err.message)
-    },
-    complete:() => {
-      // Completion callback (optional)
-      
-      console.log('Logout request completed');
-      this.router.navigate(["/login"])
-    }}
-  )
- }
+  // get isAdmin(){
+  //   return this.auth.user.role && this.auth.user.role.contains('admin')
+  // }
+
+  logout(){
+    this.auth.logout().subscribe(
+      {next:(res) => {
+        console.log("Logout successful");
+        localStorage.clear()
+        
+      },
+      error: (err) => {
+        alert(err.message)
+      },
+      complete:() => {
+        // Completion callback (optional)
+        
+        console.log('Logout request completed');
+        this.router.navigate(["/login"])
+      }}
+    )
+   }
+ 
 }

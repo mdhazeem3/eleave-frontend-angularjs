@@ -1,9 +1,10 @@
+
 <head>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
-<html><body>
+<body>
     <form [formGroup]="signupForm" (submit)="signup()" >
-        <h1>Sign Up</h1>
+        <h1>Register User</h1>
     
         <div class="form-control">
             <label for="name">Name</label>
@@ -18,16 +19,13 @@
                 <p *ngIf="signupForm.controls.email.hasError('required')">Please fill in this field</p>
                 <p *ngIf="signupForm.controls.email.hasError('email')">Please enter a valid email</p>
             </div>
-            
         </div>
 
         <div class="form-control">
             <label for="phoneNo">Phone Number</label>
             <input formControlName="phoneNo" id="phoneNo" type="text" pattern="[0-9]{10}" required />
             <div *ngIf="signupForm.controls.phoneNo.touched || signupForm.controls.phoneNo.dirty"> 
-                <!-- <p *ngIf="isExist">Email is already in use</p> -->
                 <p *ngIf="signupForm.controls.phoneNo.hasError('required')">Please fill in this field</p>
-                <!-- <p *ngIf="signupForm.controls.email.hasError('email')">Please enter a valid phone number</p> -->
             </div>
         </div>
 
@@ -43,8 +41,7 @@
             </mat-radio-group>
         </div>
 
-        <button type="submit" [disabled]="!signupForm.valid">Sign Up!</button>
-        <p style="text-align: center; font-family: Roboto; color: white;" >Have an account?<a routerLink="/login">&nbsp;Login</a></p>
+        <button type="submit" [disabled]="!signupForm.valid">Register</button>
     </form>
-</body></html>
+</body>
 

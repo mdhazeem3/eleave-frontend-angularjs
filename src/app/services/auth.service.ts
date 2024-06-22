@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
+import { BehaviorSubject, Observable, lastValueFrom, map } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
@@ -67,6 +67,41 @@ export class AuthService {
         
         return this.http.post(configUrl, {}, { withCredentials: true})
       }
+
+    getCurrentUser(): Observable<any>{
+      return this.http.get('http://localhost:3000/api/profile', {withCredentials: true})
+    }
+
+
+    getUsers(): Observable<any[]> {
+      return this.http.get<any[]>('http://localhost:3000/api/users');
+    }
+
+    getUserById(userId: String): Observable<any[]> {
+      return this.http.get<any[]>(`http://localhost:3000/api/userById/${userId}`);
+    }
+
+    //LEAVES//
+
+    getLeaveTypes(): Observable<any[]>{
+      return this.http.get<any[]>('http://localhost:3000/api/leavetype');
+    }
+
+    updateUserLeaves(userId: string, leaveData: any): Observable<any> {
+      const url = `${this.URI}/user/leaves`;
+      const body = { userId, ...leaveData };
+  
+      return this.http.put(url, body);
+    }
+
+    getUserLeaves(userId: string): Observable<any[]>{
+      // return this.http.get<any[]>(`http://localhost:3000/api/getUserLeaves/${userId}`).pipe(
+      //   map((data: any[])=>{
+      //     return data.map(u=>({total: u.total}))
+      //   })
+      // )
+      return this.http.get<any[]>(`http://localhost:3000/api/getUserLeaves/${userId}`)
+    }
 
     public get currentUserValue(){return localStorage.getItem('UserData')}
     

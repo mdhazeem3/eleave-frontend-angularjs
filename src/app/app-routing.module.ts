@@ -7,19 +7,22 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { authGuard } from './services/guard/auth.guard';
+import { UserListComponent } from './user-list/user-list.component';
+import { AddLeaveComponent } from './add-leave/add-leave.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent, canActivate: [authGuard]},
   {path: 'home', component: HelloworldComponent, canActivate: [authGuard]},
-  {path: 'mainmenu', component: MainmenuComponent, canActivate: [authGuard]},
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    children: [
-      {path: ':id', component: ProfileDetailComponent, canActivate: [authGuard] }
-    ]
+  {path: 'mainmenu',
+  component: MainmenuComponent,
+  canActivate: [authGuard],
+  children:[
+    {path: 'signup', component: SignupComponent},
+    {path: 'profile', component: ProfileComponent, children:[{path: ':id', component: ProfileDetailComponent}]},
+    {path: 'employeelist', component: UserListComponent},
+    {path: 'edituser/:id', component: AddLeaveComponent}
+  ]
   }
 ];
 

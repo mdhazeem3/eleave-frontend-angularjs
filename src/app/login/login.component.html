@@ -4,41 +4,56 @@
 
 <title>LOGIN</title>
 <html style="background-color: black;">
-<body>
-    <div class="container">
-        <img class="side" src="https://www.nescafe.com/gb/sites/default/files/2023-11/Untitled-5%20copy_6.jpg" alt="kopi">
-        <form [formGroup]="loginForm" (submit)="login()" autocomplete="new-password">
-            <header>
-                <img src="https://zuscoffee.com/wp-content/uploads/2022/03/zus_logo.png" alt="">
-                <h1>Welcome back</h1>
-                <p>Please enter your details</p>
-            </header>
 
-                <br>
+<body class="background-image">
+    <div class="flex w-auto h-full">
+        <div class="container flex flex-row relative p-3 rounded-lg shadow-lg border h-1/2 w-1/2 mx-auto my-auto bg-white">
+            <!-- <img class="side" src="https://www.nescafe.com/gb/sites/default/files/2023-11/Untitled-5%20copy_6.jpg" alt="kopi"> -->
+            <div class="m-auto">
+                <img src="../../assets/eleaf-logo.png" alt="" class="mt-8 mx-auto pb-8">
+                <h1 class="text-2xl font-sans text-center pb-4">WELCOME BACK</h1>
+                <p class="text-center pb-8">Please enter your details</p>
+            </div>
 
-            <div class="input">
-                <label for="email">Email</label>
-                <input formControlName="email" id="email" autocomplete="new-password"  type="email" required/>
-            </div>
+            <div class="border-r-2"></div>
             
-            <div class="input">
-                <label for="password">Password</label>
-                <input formControlName="password" id="password" autocomplete="new-password" type="password" required/>
-            </div>
-                <br>
-            <button type="submit">Login</button>
-            
-            <div class="spacer">
-                <label class="remember-wrapper">
-                    <input type="checkbox">
-                    Remember me
-                </label>
+            <div class="w-1/2 my-auto">
+            <form [formGroup]="loginForm" (submit)="login()" autocomplete="new-password"
+                class="m-auto px-16 w-full">
                 
-                <a href="">Forgot Password?</a>
-            </div>
+                <div>
+                    <div class="py-4">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email Address</label>
+                        <input formControlName="email" id="email" autocomplete="new-password" type="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            required />
+                    </div>
 
-            <p style="text-align: center; font-family: Roboto; color: var(--text);">Don't have an account?<a routerLink="/signup">&nbsp;Sign Up</a></p>
-        </form>
+                    <div class="py-4">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                        <input formControlName="password" id="password" autocomplete="new-password" type="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            required />
+                    </div>
+
+                    <div class="flex flex-row pt-2 pb-4 justify-between">
+                        <div>
+                            <input type="checkbox" class=""><label for="remember" class="pl-2">Remember me</label>
+                        </div>
+                        <div>
+                            <a href="" class="underline">Forgot Password?</a>
+                        </div>
+                    </div>
+
+                    <div class="py-4">
+                        <button type="submit"
+                            class="text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
 </body>
+
 </html>

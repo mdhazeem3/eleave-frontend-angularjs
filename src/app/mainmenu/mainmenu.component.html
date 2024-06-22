@@ -1,15 +1,16 @@
-    
 <mat-sidenav-container class="mat-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open')"
-        (closed)="events.push('close')">
+    
+    <mat-sidenav #sidenav mode="side" opened="true" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+
         <div class="sidenav-container">
             <ul>
-                <li><a href="">Main</a></li>
+                <li routerLink="/mainmenu" class="cursor-pointer">Main</li>
                 <li><a href="">Leaves</a></li>
                 <li><a href="">Claims</a></li>
-                <li *ngIf="isAdmin()"><a href="/signup">Register User</a></li>    
+                <li *ngIf="isAdmin" routerLink="/mainmenu/employeelist" class="pointer-cursor">Employee List</li>
+                <li *ngIf="isAdmin" routerLink="/mainmenu/signup" class="pointer-cursor">Register Employee</li>    
             </ul>
-            <li><a href="/profile"><mat-icon>account_circle</mat-icon></a></li>
+            <li routerLink="/mainmenu/profile" class="pointer-cursor"><mat-icon>account_circle</mat-icon></li>
         </div>
     </mat-sidenav>
 
@@ -19,5 +20,6 @@
             <img src="assets/eleaf-logo.png" alt="logo">
             <button class="button" (click)="logout()">Log out</button>
         </header>
+        <div class="background-image"><router-outlet></router-outlet></div>
     </mat-sidenav-content>
 </mat-sidenav-container>

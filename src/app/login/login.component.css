@@ -1,4 +1,4 @@
-body {
+/* body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,4 +99,9 @@ a {
 .signup {
   margin-top: 24px;
   text-align: center;
+} */
+
+.background-image{
+  background: url('../../assets/background.svg');
+  background-size: cover;
 }

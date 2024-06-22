@@ -1,0 +1,49 @@
+<button class="absolute z-[9999] pt-4 pl-4" (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+<div class="flex w-auto h-full">
+    <div class="container m-auto w-1/2 center">
+        <form [formGroup]="leaveForm" class="flex flex-col bg-white shadow-2xl border-2" (ngSubmit)="onSubmit()">
+            <h2 class="pt-4 pl-4 text-xl">Add Leave</h2>
+            <div class="px-10 py-6 flex flex-row">
+                <div class="w-1/2">
+                    <label for="input-group-1"
+                        class="block mb-2 text-sm font-medium text-gray-900 rounded-lg">Name</label>
+                    <input type="text" placeholder="Name" formControlName="name"
+                        class="bg-gray-400 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+
+                    <label for="input-group-1"
+                        class="block mb-2 text-sm font-medium text-gray-900 rounded-lg pt-4">Email</label>
+                    <input type="text" placeholder="Email" formControlName="email"
+                        class="bg-gray-400 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+
+                    <label for="input-group-1"
+                        class="block mb-2 text-sm font-medium text-gray-900 rounded-lg pt-4">Phone
+                        Number</label>
+                    <input type="text" placeholder="Phone Number" formControlName="phoneNo"
+                        class="bg-gray-400 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
+                </div>
+                <div class="w-1/2 pl-6">
+                    <div class="flex items-center mb-4 pb-6 w-full center"
+                        *ngFor="let leave of leaves; let i=index">
+                        <div class="flex items-center justify-between w-full">
+
+                            <label class="ms-2 text-sm font-medium text-gray-900">
+                                <input id="i" type="checkbox" value="{{leave.type}}"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                                    (change)="onChange($event, leave.type)">
+                                {{ leave.type }}
+                            </label>
+
+                            <input class="border border-black w-12" type="number" [formControlName]="leave.type">
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded w-full">
+                        Submit
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

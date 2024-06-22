@@ -32,7 +32,7 @@ export class LoginComponent {
     this.auth.login(this.loginForm).subscribe(
       {next:(res) => {
         // Success callback
-        alert(res.message);
+        // alert(res.message);
         if (res.success == true) { 
           // localStorage.clear();
           let user = res.user;

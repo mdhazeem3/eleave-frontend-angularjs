@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700|Roboto:400');
-
-:root{
-  --text: #080d13;
-  --background: #f0f5fb;
-  --primary: #2b78d9;
-  --secondary: #78aff3;
-  --accent: #368ffd;
-  --secondaryOpaque: #78aff36c;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: 'Roboto';
@@ -37,6 +31,10 @@ small {font-size: 0.800rem; /* 12.8px */}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.flex{
+  display: flex;
+}
+
 .button{
   border: solid 0.5px lightgrey;
   background-color: transparent;
@@ -60,4 +58,65 @@ a{
 a:visited{
   text-decoration: none;
   color: black;
+}
+
+.sidenav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidenav-container ul {
+  list-style-type: none;
+  padding: 0 2rem 0 2rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidenav-container li {
+  padding: 2rem 16px;
+  text-align: center;
+}
+
+.sidenav-container li:last-child {
+  margin-top: auto;
+  list-style: none;
+  text-align: center;
+}
+
+.mat-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 48px;
+  overflow: hidden;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: solid 0.5px lightgrey;
+  position: sticky
+}
+
+header img {
+  height: 100%;
+  /* align-items: center; */
+}
+
+.logo{
+  margin: 2rem;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.pointer-cursor{
+  cursor: pointer;
 }

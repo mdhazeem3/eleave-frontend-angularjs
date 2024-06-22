@@ -47,7 +47,7 @@ export class SignupComponent {
         console.log(res)
         if(res.success && !res.exist){
           alert(res.messageSuccess);
-          this.router.navigate(['/login']);
+          // this.router.navigate(['/login']);
         }else{
           this.isExist=res.exist
         }
