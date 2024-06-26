@@ -1,0 +1,48 @@
+<div class="flex h-full w-full items-center justify-center">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Leave Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    From
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    To
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Reason
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let leave of leaves" class="bg-white">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    {{ leave.userName }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ leave.appliedLeaveType }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ leave.fromDate | customDate}}
+                </td>
+                <td class="px-6 py-4">
+                    {{ leave.toDate | customDate}}
+                </td>
+                <td class="px-6 py-4">
+                    {{ leave.reason }}
+                </td>
+                <td class="px-6 py-4">
+                    <button mat-raised-button (click)="openDialog('0ms', '0ms')">Action</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

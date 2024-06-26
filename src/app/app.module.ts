@@ -20,6 +20,12 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
 import { UserListComponent } from './user-list/user-list.component';
 import { AddLeaveComponent } from './add-leave/add-leave.component';
 import { SearchPipe } from "./services/search.pipe";
+import { ApplyleaveComponent } from './applyleave/applyleave.component';
+import { AdminLeaveComponent } from './admin-leave/admin-leave.component';
+import { CustomDatePipe } from './services/date-format.pipe';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
@@ -31,7 +37,10 @@ import { SearchPipe } from "./services/search.pipe";
         ProfileComponent,
         ProfileDetailComponent,
         UserListComponent,
-        AddLeaveComponent
+        AddLeaveComponent,
+        ApplyleaveComponent,
+        AdminLeaveComponent,
+        DialogComponent
     ],
     providers: [
         provideAnimationsAsync(),
@@ -52,7 +61,13 @@ import { SearchPipe } from "./services/search.pipe";
         MatSelectModule,
         MatRadioModule,
         FormsModule,
-        SearchPipe
+        SearchPipe,
+        CustomDatePipe,
+        MatButtonModule,
+        MatDialogActions,
+        MatDialogClose,
+        MatDialogTitle,
+        MatDialogContent
     ]
 })
 export class AppModule { }

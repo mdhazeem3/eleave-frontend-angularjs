@@ -9,6 +9,8 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
 import { authGuard } from './services/guard/auth.guard';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddLeaveComponent } from './add-leave/add-leave.component';
+import { ApplyleaveComponent } from './applyleave/applyleave.component';
+import { AdminLeaveComponent } from './admin-leave/admin-leave.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
@@ -21,7 +23,8 @@ const routes: Routes = [
     {path: 'signup', component: SignupComponent},
     {path: 'profile', component: ProfileComponent, children:[{path: ':id', component: ProfileDetailComponent}]},
     {path: 'employeelist', component: UserListComponent},
-    {path: 'edituser/:id', component: AddLeaveComponent}
+    {path: 'edituser/:id', component: AddLeaveComponent},
+    {path: 'leave-application', component: AdminLeaveComponent},
   ]
   }
 ];

@@ -103,6 +103,10 @@ export class AuthService {
       return this.http.get<any[]>(`http://localhost:3000/api/getUserLeaves/${userId}`)
     }
 
+    getLeaveApplication(): Observable<any>{
+      return this.http.get<any>('http://localhost:3000/api/leave-application-list')
+    }
+
     public get currentUserValue(){return localStorage.getItem('UserData')}
     
 }
